@@ -16,10 +16,12 @@ function App() {
       .catch(error => console.log(error.message))
   }, []);
 
+  const addListing = newListing => setListings(previousListings => [...previousListings, newListing])
+
   return (
     <div className="app">
       <Header />
-      <ListingForm />
+      <ListingForm addListing={addListing}/>
       <ListingsContainer listings={listings}/>
     </div>
   );

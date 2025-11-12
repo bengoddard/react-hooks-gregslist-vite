@@ -11,8 +11,8 @@ function ListingCard({ description, image, location, favorite }) {
         ) : (
           <button className="emoji-button favorite">☆</button>
         )}
-        <strong>{"description"}</strong>
-        <span> · {"location"}</span>
+        <strong>{description}</strong>
+        <span> · {location}</span>
         <button className="emoji-button delete">🗑</button>
       </div>
     </li>

@@ -48,6 +48,13 @@
       "image": "/images/treadmill.jpg",
       "location": "East Flatbush",
       "favorite": false
+    },
+    {
+      "id": "0d14",
+      "description": "poo",
+      "image": "",
+      "location": "alpine",
+      "favorite": false
     }
   ]
 }
