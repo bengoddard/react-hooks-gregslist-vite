@@ -1,4 +1,4 @@
-function ListingCard({ id, description, image, location, favorite, updateListing }) {
+function ListingCard({ id, description, image, location, favorite, updateListing, deleteListing }) {
 
   const handleFavorite = () => {
     fetch(`http://localhost:6001/listings/${id}`, {
@@ -11,6 +11,17 @@ function ListingCard({ id, description, image, location, favorite, updateListing
         return r.json()
       })
       .then(updateListing)
+      .catch(error => console.log(error.message))
+  }
+
+  const handleDelete = () => {
+    fetch(`http://localhost:6001/listings/${id}`, {
+      method: "DELETE"
+    })
+      .then(r => {
+        if(!r.ok){throw new Error("failed to delete listing")}
+        deleteListing(id)
+      })
       .catch(error => console.log(error.message))
   }
   return (
@@ -27,7 +38,7 @@ function ListingCard({ id, description, image, location, favorite, updateListing
         )}
         <strong>{description}</strong>
         <span> · {location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button className="emoji-button delete" onClick={handleDelete}>🗑</button>
       </div>
     </li>
   );
